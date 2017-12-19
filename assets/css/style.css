@@ -5,6 +5,7 @@ body, html {
  	margin: 0;
  	box-sizing: border-box;
  	background-size: 100%;
+ 	font-family: 'Architects Daughter', cursive;
 }
 
 img {
@@ -29,27 +30,37 @@ img {
 }
 
 .margin {
-	width: 30%;
+	width: 20%;
 	min-height: 1px;
 	float: left;
 }
 
 .gameSection {
-	width: 40%;
+	width: 60%;
 	height: 500px;
 	float: left;
 }
 
-#instructions {
-	height: 100px;
+.text {
+	height: 50px;
 	width: 100%;
 	text-align: center;
+	font-size: 20px;
+}
+
+.holdButtons {
+	margin-top: 30px;
 }
 
 .answer {
 	float: left;
 	width: 50%;
 	text-align: center;
-	padding-top: 20px;
 	height: 50px;
+	font-size: 20px;
+	padding-top: 20px;
+}
+
+.answerBox {
+	margin-top: 20px;
 }
