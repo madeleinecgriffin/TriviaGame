@@ -1,3 +1,5 @@
+$( document ).ready(function() {
+
 //object containg array of question answers
 var answersList = {
 	answerNumber: [{
@@ -64,7 +66,12 @@ function clearQuestion() {
 	temp = answerArray[questionCount];
 	questionCount++;
 	$("#pokemonImage").attr("src", colorImages[questionCount - 1]);
-	$("#instructions").html(guessText + " The pokemon is " + temp + ". The next question will appear when the timer runs out.");
+	if (questionCount == answerArray.length) {
+		$("#instructions").html(guessText + " The pokemon is " + temp + ". You have answered all the questions.");
+	}
+	else {
+		$("#instructions").html(guessText + " The pokemon is " + temp + ". The next question will appear when the timer runs out.");
+	}
 	for (var i = 0; i < 4; i++) {
 		$("#answer" + i).html("");
 	}
@@ -72,10 +79,10 @@ function clearQuestion() {
 
 //function to show finished quiz screen
 function finish() {
-	$("#instructions").html("Congrats! You finished the Pokemon quiz. You correctly named " + correct + " pokemon.");
+	$("#instructions").html("Congrats! You finished the Pokemon quiz. You correctly named " + correct + " pokemon. Refresh the page to play again.");
 	$("#countdown").html("");
 	$("#pokemonImage").attr("src", "assets/images/complete.png");
-	$("#pokemonImage").attr("width", "300px");
+	$("#pokemonImage").attr("width", "350px");
 	$("#pokemonImage").attr("height", "250px");
 	return;
 }
@@ -90,8 +97,8 @@ function decrement() {
 	
 	//runs if the display is currently a question screen
 	if (questionPage == true && number <= 0) {
-			guessText = "Time's up!";
-			clearQuestion();
+		guessText = "Time's up!";
+		clearQuestion();
 	}
 
 	//runs if display is currently an answer screen
@@ -154,3 +161,5 @@ $(".answer").on("click", function(){
 
 	clearQuestion();
 })
+
+});
